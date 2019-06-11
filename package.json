@@ -2,9 +2,9 @@
   "name": "yTask",
   "version": "1.0.0",
   "bin": {
-    "yTask": "./yTask.js"
+    "yTask": "./yTask"
   },
-  "main": "./yTask.js",
+  "main": "./yTask",
   "author": "xb",
   "license": "MIT",
   "engines": {
