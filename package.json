@@ -11,6 +11,6 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "commander": "^2.14.1",
+    "commander": "^2.14.1"
   }
 }
