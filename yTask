@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+let program = require('commander');
+let utils = require('./utils/utils')
+program
+    .option('-v, --version', '显示版本号', () => {
+      console.log('1.0.0')
+    })
