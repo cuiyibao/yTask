@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-let program = require('commander')
-program
-    .option('-v, --version', '显示版本号', () => {
-      console.log('1.0.0')
-    })
+let program = require("commander")
+// let log = require("./utils/log")
+program.option("-v, --version", "显示版本号", () => {
+  console.log("1.0.0")
+})
+
+console.log("you ordered a pizza with:")

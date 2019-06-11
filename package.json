@@ -11,6 +11,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "commander": "^2.14.1"
   }
 }
