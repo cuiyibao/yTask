@@ -1,0 +1,16 @@
+{
+  "name": "yTask",
+  "version": "1.0.0",
+  "bin": {
+    "yTask": "./yTask.js"
+  },
+  "main": "./yTask.js",
+  "author": "xb",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "commander": "^2.14.1",
+  }
+}
