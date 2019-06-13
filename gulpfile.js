@@ -2,7 +2,7 @@
  * @Description: glup
  * @Author: yb001
  * @Date: 2019-05-23 17:20:08
- * @LastEditTime: 2019-06-13 18:58:47
+ * @LastEditTime: 2019-06-13 19:02:20
  * @LastEditors: yb001
  */
 const gulp = require("gulp")
@@ -87,24 +87,20 @@ gulp.task('npm', function() {
 })
 
 gulp.task("watchLess", function() {
-  gulp.watch(build.getPath(entryPath, ".less"), ["less"], () => {
-    log.tag("正在监听中...")
-  })
+  gulp.watch(build.getPath(entryPath, ".less"), ["less"])
 })
 
 gulp.task("watchJs", function() {
-  gulp.watch(build.getPath(entryPath, ".js"), ["js"], () => {
-    log.tag("正在监听中...")
-  })
+  gulp.watch(build.getPath(entryPath, ".js"), ["js"])
 })
 
 gulp.task("watchMove", function() {
-  gulp.watch(build.movePath(entryPath), ["move"], () => {
-    log.tag("正在监听中...")
-  })
+  gulp.watch(build.movePath(entryPath), ["move"])
 })
 
-gulp.task("watch", ["watchLess", "watchJs", "watchMove"])
+gulp.task("watch", ["watchLess", "watchJs", "watchMove"], () => {
+  log.tag("正在监听中...")
+})
 
 gulp.task("dev", ["move", "less", "js", "npm", "watch"])
 gulp.task("build", ["move", "less", "js", "npm"], () => {
