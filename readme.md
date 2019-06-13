@@ -2,7 +2,7 @@
  * @Description: 文件描述
  * @Author: yb001
  * @Date: 2019-06-03 11:19:14
- * @LastEditTime: 2019-06-11 18:13:45
+ * @LastEditTime: 2019-06-13 16:47:31
  * @LastEditors: yb001
  -->
 ## yTask
@@ -10,6 +10,7 @@
 
 ## install
 + npm install -g git+ssh://git@github.com:cuiyibao/yTask.git#master
++ yarn global add git+ssh://git@github.com:cuiyibao/yTask.git#master
 
 ## usage
 + yTask --v

@@ -4,10 +4,6 @@
   "bin": {
     "yTask": "./yTask"
   },
-  "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build"
-  },
   "main": "./yTask",
   "author": "xb",
   "license": "MIT",

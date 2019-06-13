@@ -2,7 +2,7 @@
  * @Description: glup
  * @Author: yb001
  * @Date: 2019-05-23 17:20:08
- * @LastEditTime: 2019-06-13 15:45:20
+ * @LastEditTime: 2019-06-13 17:46:42
  * @LastEditors: yb001
  */
 const gulp = require("gulp")
@@ -77,10 +77,14 @@ gulp.task("js", function() {
     .pipe(gulp.dest(outputPath))
 })
 
-gulp.task('npm', function() {
-  console.log('\x1b[32m%s\x1b[0m', ' 🚚 🚚 🚚 🚚 🚚 <==== Compiling node_modules')
-  gulp.src(['./src/node_modules/**/*.js',])
-    .pipe(gulp.dest('./dist/miniprogram_npm/'))
+gulp.task("npm", function() {
+  console.log(
+    "\x1b[32m%s\x1b[0m",
+    " 🚚 🚚 🚚 🚚 🚚 <==== Compiling node_modules"
+  )
+  gulp
+    .src(["./src/node_modules/**/*.js"])
+    .pipe(gulp.dest("./dist/miniprogram_npm/"))
 })
 
 gulp.task("watchLess", function() {
@@ -97,5 +101,7 @@ gulp.task("watchMove", function() {
 
 gulp.task("watch", ["watchLess", "watchJs", "watchMove"])
 
-gulp.task("dev", ["clear", "move", "less", "js", "npm", "watch"])
-gulp.task("build", ["clear", "move", "less", "js", "npm"])
+gulp.task("dev", ["move", "less", "js", "npm", "watch"])
+gulp.task("build", ["move", "less", "js", "npm"])
+
+module.exports = gulp

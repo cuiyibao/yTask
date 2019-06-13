@@ -5,6 +5,8 @@ const log = utils.log
 
 const { spawn } = require("child_process")
 
+const Glup = require("./gulpfile")
+
 program.option("-v, --version", "显示版本号", () => {
   log.tag(utils.getVer())
 })
@@ -13,20 +15,14 @@ program
   .command("dev")
   .description("开发项目")
   .action(cmd => {
-    const child = spawn("npm run dev",  {
-      shell: true
-    })
-    child.stdout.pipe(process.stdout);
+    Glup.start("dev")
   })
 
 program
   .command("build")
   .description("编译项目")
   .action(cmd => {
-    const child = spawn("npm run build",  {
-      shell: true
-    })
-    child.stdout.pipe(process.stdout);
+    Glup.start("build")
   })
 
 program
