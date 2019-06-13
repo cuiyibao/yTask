@@ -2,7 +2,7 @@
  * @Description: glup
  * @Author: yb001
  * @Date: 2019-05-23 17:20:08
- * @LastEditTime: 2019-06-13 17:46:42
+ * @LastEditTime: 2019-06-13 18:38:58
  * @LastEditors: yb001
  */
 const gulp = require("gulp")
@@ -14,6 +14,9 @@ const minify = require("gulp-minify")
 const sourcemaps = require("gulp-sourcemaps")
 const { exec } = require("child_process")
 const build = require("./lib/build")
+const utils = require("./utils/utils")
+const moment = require("moment")
+const log = utils.log
 
 const entryPath = build.getInputPaths()
 
@@ -77,14 +80,10 @@ gulp.task("js", function() {
     .pipe(gulp.dest(outputPath))
 })
 
-gulp.task("npm", function() {
-  console.log(
-    "\x1b[32m%s\x1b[0m",
-    " 🚚 🚚 🚚 🚚 🚚 <==== Compiling node_modules"
-  )
-  gulp
-    .src(["./src/node_modules/**/*.js"])
-    .pipe(gulp.dest("./dist/miniprogram_npm/"))
+gulp.task('npm', function() {
+  console.log('\x1b[32m%s\x1b[0m', ' 🚚 🚚 🚚 🚚 🚚 <==== Compiling node_modules')
+  gulp.src(['./src/node_modules/**/*.js',])
+    .pipe(gulp.dest('./dist/miniprogram_npm/'))
 })
 
 gulp.task("watchLess", function() {
@@ -101,7 +100,11 @@ gulp.task("watchMove", function() {
 
 gulp.task("watch", ["watchLess", "watchJs", "watchMove"])
 
-gulp.task("dev", ["move", "less", "js", "npm", "watch"])
-gulp.task("build", ["move", "less", "js", "npm"])
+gulp.task("dev", ["move", "less", "js", "npm", "watch"], () => {
+  log.tag("正在监听中...", moment().format("YYYY-MM-DD hh:mm:ss"))
+})
+gulp.task("build", ["move", "less", "js", "npm"], () => {
+  log.tag("编译完成", moment().format("YYYY-MM-DD hh:mm:ss"))
+})
 
 module.exports = gulp
