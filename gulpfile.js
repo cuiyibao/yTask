@@ -2,7 +2,7 @@
  * @Description: glup
  * @Author: yb001
  * @Date: 2019-05-23 17:20:08
- * @LastEditTime: 2019-06-13 18:38:58
+ * @LastEditTime: 2019-06-13 18:53:22
  * @LastEditors: yb001
  */
 const gulp = require("gulp")
@@ -98,13 +98,15 @@ gulp.task("watchMove", function() {
   gulp.watch(build.movePath(entryPath), ["move"])
 })
 
-gulp.task("watch", ["watchLess", "watchJs", "watchMove"])
+gulp.task("watch", ["watchLess", "watchJs", "watchMove"], () => {
+  log.tag("正在监听中...")
+})
 
 gulp.task("dev", ["move", "less", "js", "npm", "watch"], () => {
-  log.tag("正在监听中...", moment().format("YYYY-MM-DD hh:mm:ss"))
+  log.tag("正在监听中...")
 })
 gulp.task("build", ["move", "less", "js", "npm"], () => {
-  log.tag("编译完成", moment().format("YYYY-MM-DD hh:mm:ss"))
+  log.tag("编译完成")
 })
 
 module.exports = gulp

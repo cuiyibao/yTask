@@ -16,7 +16,7 @@ program
   .command("dev")
   .description("开发项目")
   .action(cmd => {
-    log.tag("开始编译", moment().format("YYYY-MM-DD hh:mm:ss"))
+    log.tag("开始编译...")
     Glup.start("dev")
   })
 
@@ -24,7 +24,7 @@ program
   .command("build")
   .description("编译项目")
   .action(cmd => {
-    log.tag("开始编译", moment().format("YYYY-MM-DD hh:mm:ss"))
+    log.tag("开始编译...")
     Glup.start("build")
   })
 
