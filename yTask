@@ -1,8 +1,51 @@
 #!/usr/bin/env node
-let program = require("commander")
-// let log = require("./utils/log")
+const program = require("commander")
+const utils = require("./utils/utils")
+const log = utils.log
+
+const { spawn } = require("child_process")
+
 program.option("-v, --version", "显示版本号", () => {
-  console.log("1.0.0")
+  log.tag(utils.getVer())
 })
 
-console.log("you ordered a pizza with:")
+program
+  .command("dev")
+  .description("开发项目")
+  .action(cmd => {
+    const child = spawn("npm run dev",  {
+      shell: true
+    })
+    child.stdout.pipe(process.stdout);
+  })
+
+program
+  .command("build")
+  .description("编译项目")
+  .action(cmd => {
+    const child = spawn("npm run build",  {
+      shell: true
+    })
+    child.stdout.pipe(process.stdout);
+  })
+
+program
+  .command("new <project>")
+  .description("新建项目")
+  .action(project => {
+    require("./lib/create")(project)
+  })
+
+program
+  .command("page <page>")
+  .description("新建页面")
+  .action(project => {
+    require("./lib/page")(project)
+  })
+
+program.parse(process.argv)
+
+// no args: show help
+if (!process.argv.slice(2).length) {
+  program.outputHelp()
+}

@@ -4,6 +4,10 @@
   "bin": {
     "yTask": "./yTask"
   },
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
   "main": "./yTask",
   "author": "xb",
   "license": "MIT",
@@ -11,7 +15,16 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "chalk": "^2.4.2",
-    "commander": "^2.14.1"
+    "commander": "^2.14.1",
+    "glup": "^1.0.14",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^4.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5"
   }
 }

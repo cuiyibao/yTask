@@ -1,0 +1,14 @@
+<!-- index.wxml -->
+<view class="container">
+  <van-cell
+    class="nav-item"
+    wx:for="{{ navList }}"
+    wx:key="index"
+    icon="{{item.icon}}"
+    is-link
+    border
+    center
+    url="/pages/{{ item.path }}/index"
+    title="{{ item.name }}"
+  />
+</view>

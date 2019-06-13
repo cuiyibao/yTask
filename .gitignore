@@ -5,3 +5,5 @@ out
 package-lock.json
 test
 yarn.lock
+dist
+yarn-error.log

@@ -17,9 +17,6 @@ function log(){
   console.log.apply(this,r)
 }
 
-function custom(){
-
-}
 module.exports = {
   tag(tag){
     let r = Array.prototype.slice.call(arguments)
